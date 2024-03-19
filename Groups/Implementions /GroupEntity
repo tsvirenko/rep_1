@@ -1,0 +1,40 @@
+using Groups.Implementions;
+using Clients.Implementations;
+
+namespace Groups.Implementions
+{
+    public class GroupEntity
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public List<ClientEntity> Clients { get; set; }
+        public TrainerEntity Trainer { get; set; }
+
+        public GroupEntity()
+        {
+            Clients = new List<ClientEntity>();
+        }
+
+        public void AddClient(ClientEntity client)
+        {
+            Clients.Add(client);
+            client.GroupId = Id;
+        }
+
+        public void AssignTrainer(TrainerEntity trainer)
+        {
+            Trainer = trainer;
+        }
+
+        public void DisplayGroupInfo()
+        {
+            Console.WriteLine($"Group: {Name}, Group ID: {Id}");
+            Console.WriteLine($"Trainer: {Trainer?.Name ?? "No trainer assigned"}");
+            Console.WriteLine("Clients:");
+            foreach (var client in Clients)
+            {
+                client.DisplayClientInfo();
+            }
+        }
+    }
+}
