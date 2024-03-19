@@ -7,7 +7,7 @@ using System;
 using System.IO;
 
 [TestFixture]
-public class TeacherEntityTests
+public class Teacher_Entity_Tests
 {
     [Test]
     public void DisplayTeacherInfo_PrintsCorrectInfo()
