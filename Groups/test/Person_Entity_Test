@@ -1,17 +1,17 @@
 using Groups.Implementions;
 using NUnit.Framework;
 
-namespace Groups.test;
+namespace Groups.Tests;
 
 [TestFixture]
-public class Person_Entity_Tests
+public class PersonEntityTests
 {
     [Test]
     public void PersonEntity_ConstructsObjectWithCorrectProperties()
     {
         // Arrange
         int expectedId = 1;
-        string expectedName = "John";
+        string expectedName = "Mary";
 
         // Act
         var person = new PersonEntity
