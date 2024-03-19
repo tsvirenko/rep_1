@@ -1,1 +1,33 @@
-jty
+using Clients.Implementations;
+
+namespace Groups.test;
+
+using NUnit.Framework;
+using System;
+using System.IO;
+
+[TestFixture]
+public class TeacherEntityTests
+{
+    [Test]
+    public void DisplayTeacherInfo_PrintsCorrectInfo()
+    {
+        // Arrange
+        var trainer = new TrainerEntity
+        {
+            Name = "Alexis",
+            TrainerId = "T123"
+        };
+
+        // Capture console output
+        var consoleOut = new StringWriter();
+        Console.SetOut(consoleOut);
+
+        // Act
+        trainer.DisplayTrainerInfo();
+        var output = consoleOut.ToString().Trim();
+
+        // Assert
+        Assert.Equals($"Trainer: {trainer.Name}, Trainer ID: {trainer.TrainerId}", output);
+    }
+}
