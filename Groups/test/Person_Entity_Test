@@ -1,1 +1,27 @@
-kjnk
+using Groups.Implementions;
+using NUnit.Framework;
+
+namespace Groups.test;
+
+[TestFixture]
+public class Person_Entity_Tests
+{
+    [Test]
+    public void PersonEntity_ConstructsObjectWithCorrectProperties()
+    {
+        // Arrange
+        int expectedId = 1;
+        string expectedName = "John";
+
+        // Act
+        var person = new PersonEntity
+        {
+            Id = expectedId,
+            Name = expectedName
+        };
+
+        // Assert
+        Assert.Equals(expectedId, person.Id);
+        Assert.Equals(expectedName, person.Name);
+    }
+}
