@@ -1,0 +1,69 @@
+using Groups.Implementions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Clients.Implementations;
+
+namespace Groups.test;
+
+using NUnit.Framework;
+using System;
+using System.IO;
+
+[TestFixture]
+public class Group_Entity_Test
+{
+    [Test]
+    public void AddClient_ClientIsAddedToGroup()
+    {
+        // Arrange
+        var group = new GroupEntity { Id = 1, Name = "Group A" };
+        var client = new ClientEntity();
+
+        // Act
+        group.AddClient(client);
+
+        // Assert
+        Assert.Equals(1, group.Clients.Count);
+        Assert.Equals(1, client.GroupId);
+    }
+
+    [Test]
+    public void AssignTrainer_TrainerIsAssignedToGroup()
+    {
+        // Arrange
+        var group = new GroupEntity { Id = 1, Name = "Group A" };
+        var trainer = new TrainerEntity();
+
+        // Act
+        group.AssignTrainer(trainer);
+
+        // Assert
+        Assert.Equals(trainer, group.Trainer);
+    }
+
+    [Test]
+    public void DisplayGroupInfo_PrintsCorrectInfo()
+    {
+        // Arrange
+        var group = new GroupEntity { Id = 1, Name = "Group A" };
+        var trainer = new trainerEntity();
+        group.AssignTrainer(trainer);
+
+        var client1 = new ClientEntity { ClientId = "C123", GroupId = 1 };
+        var client2 = new ClientEntity { ClientId = "C456", GroupId = 1 };
+        group.AddClient(client1);
+        group.AddClient(client2);
+
+        // Capture console output
+        var consoleOut = new StringWriter();
+        Console.SetOut(consoleOut);
+
+        // Act
+        group.DisplayGroupInfo();
+        var output = consoleOut.ToString().Trim();
+
+        // Assert
+        StringAssert.Contains($"Group: {group.Name}, Group ID: {group.Id}", output);
+        StringAssert.Contains($"Trainer: {trainer.Name ?? "No trainer assigned"}", output);
+        StringAssert.Contains($"Student: {client1.Name}, Client ID: {client1.ClientId}, Group ID: {client1.GroupId}", output);
+        StringAssert.Contains($"Student: {client2.Name}, Client ID: {client2.ClientId}, Group ID: {client2.GroupId}", output);
+}
