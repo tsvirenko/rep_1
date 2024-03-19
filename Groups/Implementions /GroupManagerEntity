@@ -1,0 +1,8 @@
+using Clients.Implementations;
+
+namespace Groups.Implementions;
+
+public class GroupManagerEntity
+{
+
+}
