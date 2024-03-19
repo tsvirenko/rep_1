@@ -1,0 +1,12 @@
+namespace Groups.Implementions;
+
+public class ClientEntity : PersonEntity
+{
+    public string ClientId { get; set; }
+    public int GroupId { get; set; }
+
+    public void DisplayClientInfo()
+    {
+        Console.WriteLine($"Client: {Name}, Client ID: {ClientId}, Group ID: {GroupId}");
+    }
+}
