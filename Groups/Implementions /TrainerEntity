@@ -1,0 +1,13 @@
+using Groups.Implementions;
+
+namespace Clients.Implementations;
+
+public class TrainerEntity : PersonEntity
+{
+    public string TrainerId { get; set; }
+
+    public void DisplayTrainerInfo()
+    {
+        Console.WriteLine($"Trainer: {Name}, Trainer ID: {TrainerId}");
+    }
+}
