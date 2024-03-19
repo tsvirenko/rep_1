@@ -4,7 +4,7 @@ using NUnit.Framework;
 namespace Groups.test;
 
 [TestFixture]
-public class PersonEntityTests
+public class Person_Entity_Test
 {
     [Test]
     public void PersonEntity_ConstructsObjectWithCorrectProperties()
