@@ -1,7 +1,7 @@
 using Groups.Implementions;
 using NUnit.Framework;
 
-namespace Groups.Tests;
+namespace Groups.test;
 
 [TestFixture]
 public class PersonEntityTests
